@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>NyxLink isolated browser test</title>
+<style>body{font:24px system-ui;margin:40px;background:#eef2f8;color:#111}input,textarea,[contenteditable]{font:24px system-ui;width:90%;padding:12px;margin:10px 0;border:2px solid #567}#drop{height:140px;border:4px dashed #78a;margin:20px}#drag{background:#acf;display:inline-block;padding:25px;cursor:grab}pre{white-space:pre-wrap}section{height:130px}</style>
+<h1>NyxLink isolated browser test</h1><label>Single-line field<input id="single" autocomplete="off"></label>
+<label>Multiline field<textarea id="multi" rows="3"></textarea></label>
+<div id="editable" contenteditable="true" aria-label="Editable document"></div>
+<div id="drag" draggable="true">Drag this test token</div><div id="drop">Drop test token here</div>
+<pre id="result">Ready</pre><main id="rows"></main>
+<script>
+let drops=0,wheels=0;const result=document.querySelector('#result');
+function save(){let value={single:single.value,multi:multi.value,editable:editable.innerText,drops,wheels,scrollY,focused:document.activeElement.id};result.textContent=JSON.stringify(value,null,2);fetch('/state',{method:'POST',body:JSON.stringify(value)}).catch(()=>{});}
+for(let i=0;i<50;i++){let s=document.createElement('section');s.textContent='Scroll verification row '+i;rows.append(s);}
+document.addEventListener('input',save);document.addEventListener('focusin',save);document.addEventListener('wheel',()=>{wheels++;save()});document.addEventListener('scroll',save);
+drag.ondragstart=e=>e.dataTransfer.setData('text/plain','NyxLink test token');drop.ondragover=e=>e.preventDefault();drop.ondrop=e=>{e.preventDefault();if(e.dataTransfer.getData('text/plain')==='NyxLink test token'){drops++;drop.textContent='Drop received '+drops;save();}};
+save();
+</script></html>

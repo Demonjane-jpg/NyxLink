@@ -1,0 +1,11 @@
+.tools/
+artifacts/
+dist/
+**/bin/
+**/obj/
+**/build/
+**/.gradle/
+**/.cxx/
+**/local.properties
+.private/
+*.user

@@ -1,0 +1,6 @@
+{
+  "sunshine": { "version": "v2026.914.233613", "commit": "63d35f702ee9e362e43263742981836ec0710384", "asset": "Sunshine-Windows-AMD64-lite.zip", "sha256": "233008e46f4c0e501a586cbfd6c4fd4a4c0d414a0b5fc7f13c070eb92ec3824b" },
+  "moonlightAndroid": { "version": "v12.2", "commit": "b48494cb96bff23d8886c4775cc4f39a1075495d" },
+  "moonlightCommonC": "874ac9548f1bd6f095ef2b435c42cdde460e7821",
+  "android": { "jdk": 21, "compileSdk": 36, "ndk": "29.0.14206865", "abi": "arm64-v8a", "okhttp": "4.12.0" }
+}

@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="dev.nyxlink.testdriver">
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="36" />
+  <application android:label="NyxLink test driver" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:debuggable="true">
+    <activity android:name=".ClipboardActivity" android:exported="true" />
+  </application>
+  <instrumentation android:name=".GestureRunner" android:targetPackage="dev.nyxlink.testdriver" />
+</manifest>
